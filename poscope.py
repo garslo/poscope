@@ -1,3 +1,25 @@
+#!/usr/bin/env python
+
+#  poscope.py
+#
+#  Copyright 2013 Gary Slopsema
+#
+#  This file is part of poscope.
+#
+#  poscope is free software: you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the
+#  License, or (at your option) any later version.
+#
+#  poscope is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with poscope. If not, see <http://www.gnu.org/licenses/>.
+
+
 import sys
 from PyQt4 import QtGui, QtCore
 import numpy as np
@@ -23,7 +45,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.plotter.replotWith(xs=np.arange(0,1000),
                                    ys=self.source.data())
         self.timer.start()
-        
+
     def rerun(self):
         self.timer.stop()
         self.source.reads_per_run = int(self.ui.num_reads.text())

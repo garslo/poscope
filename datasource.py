@@ -1,4 +1,22 @@
-#!/usr/bin/env python
+#  datasource.py
+#
+#  Copyright 2013 Gary Slopsema
+#
+#  This file is part of poscope.
+#
+#  poscope is free software: you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation, either version 3 of the
+#  License, or (at your option) any later version.
+#
+#  poscope is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with poscope. If not, see <http://www.gnu.org/licenses/>.
+
 
 import numpy as np
 import PyDAQmx
@@ -31,14 +49,14 @@ class NI6009:
         self.dev = 'Dev1/ai0'
         self.timeout = 10.0
         self.have_read = daqt.int32()
-        
+
     def _setup_task(self):
         self.task = PyDAQmx.Task()
-        self.task.CreateAIVoltageChan(self.dev, '', 
+        self.task.CreateAIVoltageChan(self.dev, '',
                                       daqc.DAQmx_Val_Cfg_Default,
                                       self.voltages[0], self.voltages[1],
                                       daqc.DAQmx_Val_Volts, None)
-        self.task.CfgSampClkTiming(None, self.sample_rate, 
+        self.task.CfgSampClkTiming(None, self.sample_rate,
                                    daqc.DAQmx_Val_Rising,
                                    daqc.DAQmx_Val_FiniteSamps,
                                    self.reads_per_run)
