@@ -9,7 +9,7 @@ experiment. It exists here simply as a curiosity.
 
 poscope measures voltage changes over time and displays a real-time
 graph of these in the gui interface. The program uses a National
-Instruments NI6009 data acquisition device (DAQ) to read the voltages
+Instruments NI USB-6009 data acquisition device (DAQ) to read the voltages
 via the the [NiDAQmx](http://www.ni.com/dataacquisition/nidaqmx.htm)
 API, adapted to Python by the
 [PyDAQmx](http://pythonhosted.org/PyDAQmx/) bindings. The interface is
@@ -17,7 +17,7 @@ written in [Qt4](http://qt.digia.com/) using
 [PyQt4](http://www.riverbankcomputing.com/software/pyqt/download), and
 the raw data is crunched using [NumPy](http://www.numpy.org/).
 
-poscope was written mainly to grasp an understanding of how
+poscope was written mainly to gain an understanding of how
 oscilloscopes work and *not* to be a practical oscilloscope. As such,
 programming best practices were not necessarily followed. While I
 tried to keep things sane, inevitably the learning-oriented focus
